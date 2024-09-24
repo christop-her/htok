@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2024 at 05:35 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Sep 24, 2024 at 11:09 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `healthtok_db`
+-- Database: `healthtok`
 --
 
 -- --------------------------------------------------------
@@ -52,6 +52,7 @@ INSERT INTO `blogs` (`id`, `blogbody`, `blogtitle`, `image_01`, `created_at`) VA
 
 CREATE TABLE `bookings` (
   `id` int(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `DoctorEmail` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `reason` varchar(255) NOT NULL,
@@ -63,9 +64,10 @@ CREATE TABLE `bookings` (
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `DoctorEmail`, `email`, `reason`, `created_at`, `A_status`) VALUES
-(18, 'james769@gmail.com', 'wilfredc685@gmail.com', '', '2024-09-02', 'confirmed'),
-(19, 'james769@gmail.com', 'prosper67@gmail.com', '', '2024-09-21', 'unconfirmed');
+INSERT INTO `bookings` (`id`, `user_id`, `DoctorEmail`, `email`, `reason`, `created_at`, `A_status`) VALUES
+(18, 0, 'james769@gmail.com', 'wilfredc685@gmail.com', '', '2024-09-02', 'confirmed'),
+(19, 0, 'james769@gmail.com', 'prosper67@gmail.com', '', '2024-09-21', 'unconfirmed'),
+(21, 10, 'doctor@example.com', 'patient@example.com', 'Consultation', '2024-09-24', 'unconfirmed');
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `userpassword`, `userrole`, `gen
 (5, 'james', 'james769@gmail.com', 'passwordA', 'practitioner', '', '', '', 'Screenshot_20240223-134659.png'),
 (6, 'blessing', 'blessing12@gmail.com', 'passwordB', 'practitioner', '', '', '', ''),
 (7, 'enakeno', 'enakeno@gmaIl.com', 'passwordC', 'practitioner', 'Male', 'cardiologist', '1996-08-09', ''),
-(8, 'peace ofure', 'peace@gmail.com', '$2y$10$SuzUv2R6zpdRt1FJJIn1DeqrQAvh2PWK0yxX42.eRvS0DrhxCn9Fa', 'practitioner', 'Female', 'optometry', '1977-09-12', '');
+(8, 'peace ofure', 'peace@gmail.com', '$2y$10$SuzUv2R6zpdRt1FJJIn1DeqrQAvh2PWK0yxX42.eRvS0DrhxCn9Fa', 'practitioner', 'Female', 'optometry', '1977-09-12', ''),
+(10, 'amazingmax', 'joshuaademax@gmail.com', '$2y$10$I2kqakKwW9yC8S5afN4nxe9GHqcSNH7/vFom3XFjGdwMIUT.eGkM6', 'practitioner', 'male', 'Dentist', '2020-07-18', '');
 
 --
 -- Indexes for dumped tables
@@ -227,7 +230,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `chats`
@@ -251,7 +254,7 @@ ALTER TABLE `messageseen`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
