@@ -1,4 +1,4 @@
-# API Documentation
+# HTOK API Documentation
 
 Welcome to the API documentation for our PHP-based system. This document provides detailed information about the available API endpoints, their request formats, and responses.
 
@@ -16,7 +16,7 @@ https://example.com/api/v1/
 **Endpoint:**
 
 ```
-POST /auth/signup.php
+POST /signup.php
 ```
 
 **Description:**  
@@ -67,7 +67,7 @@ Create a new user account.
 **Endpoint:**
 
 ```
-POST /auth/login.php
+POST /login.php
 ```
 
 **Description:**  
